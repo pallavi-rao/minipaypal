@@ -6,11 +6,9 @@ Assumption : You have MySQL installed and a database created.
 - To install node and npm, from the current directory, run - > ```cd scripts; ./setup.sh```
 
 ## Running the server
-- Open up start.sh and set the port, database name, user and password according to your settings.
-- From the current directory, run - > ```cd scripts; ./start.sh``` . Enter the details are requested.
+- To start the HTTP server, from the current directory, run - > ```cd scripts; ./start.sh``` . Enter the details are requested.
 - Open a browser and type in the URL -> http://localhost:8080/
 - URL http://localhost:8080/admin takes you to the admin page. Login with user "admin" and password "admin" 
 
 ## Notes
-
 - The password of all the test users is same as the user name. For example, password of alice is "alice" 
