@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include headerincludes %>
+    <script>
+      // This function constructs the user profile URL based on user name
+      function setUserSelection(user) {
+        var link = "/users/" + user + "?mode=admin"
+        document.getElementById("detailsFrame").src = link ;
+      }
+    </script>
+  </head>
+  <body>
+      <% include header %>
+      <!-- Lists all the users in the system on the left pane -->
+      <div class="left-pane" id="admin">
+        <br>
+        List of all users in the system : <br> <br>
+        <div class="separator-line"></div>
+        <br>
+        <% if ( typeof(users) != 'undefined' ) { for(var i=0; i<users.length; i++) {%>
+          <a href="#" onclick="setUserSelection('<%= users[i].username %>')"> <%= users[i].username %> </a> 
+          <br><br>
+        <% } } %>   
+      </div>
+      <!-- Upon a user selection in the left pane, the right pane get the user profile page -->
+      <div class="right-pane">
+        <iframe class = "contained-frame" id="detailsFrame" src="" height="100%" width="100%"></iframe>
+      </div>
+  </body>
+</html>

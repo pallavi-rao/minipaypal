@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include headerincludes %>
+    <script>
+      function encodePassword() {
+        var password = document.getElementById('password').value;
+        var hash = 0, i, chr, len;
+        if (password.length == 0) {
+          document.getElementById('password').value = hash + '';
+        } else {
+          for (i = 0, len = password.length; i < len; i++) {
+            chr   = password.charCodeAt(i);
+            hash  = ((hash << 5) - hash) + chr;
+            hash |= 0; // Convert to 32bit integer
+          }
+          document.getElementById('password').value = hash + '';              
+        }
+      }
+    </script>
+  </head>
+  <body>
+      <% include header %>
+      <div class="box">
+        <form name="login" action="/<%= typeof(page) != 'undefined' ? page : '' %>/login" onsubmit="
+        <%= typeof(page) != 'undefined' && page == 'admin' ? '' : 'return encodePassword()' %>" method="post">
+          <br> <br>
+          <p class="alert"> <%= typeof(message) != 'undefined' ? message : '' %> </p>
+          <table>
+            <tr><td> Username : </td><td> <input type="text" name="name" required> </td></tr>
+            <tr><td> Password : </td><td> <input type="password" id="password" name="password" required> </td></tr>
+	        </table>
+          <input type="submit" value="Login" class="button-view">
+        </form>
+      </div>
+  </body>
+</html>

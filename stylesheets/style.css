@@ -1,0 +1,152 @@
+html, body {
+    height: 100%;
+}
+
+div.box {
+   margin-top:10%;
+   margin-left:40%;
+   vertical-align:center;
+   horizontal-align:center;
+   border:2px ridge blue;
+   width:25%;
+   height:30%;
+   text-align:center;
+}
+
+div.left-pane {
+   margin-left:0.5%;
+   border:2px ridge blue;
+   width:200px;
+   height:100%;
+   padding: 0 40px 0 10px;
+   text-align:justify;
+   overflow-y : scroll;
+   float:left;
+}
+
+div.right-pane {
+   margin-left:200px;
+   border:2px ridge blue;
+   height:100%;
+   padding: 0 40px 0 10px;
+   text-align:justify;
+   overflow-y : scroll;
+}
+
+div.contained-frame {
+   overflow: hidden;
+   width : 100%;
+   height : 100%;
+   top:-160px;
+}
+
+.separator-line {
+   background-color: #549906;
+   background-repeat: repeat-x;
+   height: 4px;
+}
+
+p.alert {
+   color: red;
+}
+
+
+div.container {
+	 padding: 50px;
+	 clear: both;
+}
+
+section {
+   min-height: calc(100% - 121px);
+   font: 300 100%/1.5 'proxima-nova';
+}
+
+.element{
+    padding-bottom: 10px;
+}
+
+.button-view {
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    background: #1f8dd6;
+    border: 0;
+    padding: 0 10px;
+    cursor: pointer;
+    height: 28px;
+    font-size: 15px;
+    color: #f4f4f4;
+}
+
+.button-view:hover {
+    background-color: #1E5894;
+}
+
+.inline-button-view {
+    color: white;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    background: #3468AF;
+    border: 0;
+    padding: 0 10px;
+    cursor: pointer;
+    height: 23px;
+    font-size: 14px;
+}
+
+input[type="text"] {
+   height: 20px;
+   padding: 0 40px 0 10px;
+   font-style: italic;
+   font-size: 14px;
+   background: #fff;
+   border: 1px solid #ccc;
+   border-radius: 2px;
+   text-align: left;
+}
+
+input[type="password"] {
+   height: 20px;
+   padding: 0 40px 0 10px;
+   background: #fff;
+   border: 1px solid #ccc;
+   border-radius: 2px;
+   text-align: left;
+}
+
+table, th, td{
+   border: 0px;
+   text-align: justify;
+}
+
+table.sample-table{
+   border-collapse: collapse;
+   box-shadow: 10px 10px 5px #888;
+}
+
+table.sample-table td{
+   border: 1px solid #CCC;
+   padding: 10px;
+   vertical-align: middle;
+   max-width: 43em;
+   overflow: scroll;
+}
+
+table.sample-table th{
+   border: 1px solid #CCC;
+   padding: 10px;
+   vertical-align: middle;
+   max-width: 43em;
+   font-weight: 200;
+   overflow: scroll;
+}
+
+td pre {
+   max-width: 43em;
+   overflow: scroll;
+}
+
+#more-samples {
+   text-decoration: underline;
+   cursor: pointer;
+}
+

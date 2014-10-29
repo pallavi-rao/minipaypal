@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include headerincludes %>
+  </head>
+  <body>
+      <!-- Based on the page attribute passed to this page an appropriate division is displayed -->
+      <% include header %>
+      <!-- This division displays the user profile -->
+      <div class="box" id="profile" style=<%= page == 'profile' ? "display:block;" : "display:none;" %> >
+        <br>
+        Profile details are as follows: <br> <br>
+        <table>
+          <tr><td>Customer Id : </td><td><%= typeof(user) != 'undefined' ? user.id : '' %></td></tr>
+          <tr><td>Name : </td><td><%= typeof(user) != 'undefined' ? user.username : '' %></td></tr>
+          <tr><td>Email : </td><td><%= typeof(user) != 'undefined' ? user.email : '' %></td></tr>    
+        </table>
+      </div>
+
+      <!-- This division displays the account details -->
+      <div class="box" id="account" style=<%= page == 'account' ? "display:block;" : "display:none;" %> >
+        <br>
+        Account details are as follows: <br> <br>
+        <table>
+          <tr><td>Account ID : </td><td><%= typeof(account) != 'undefined' ? account.id : '' %></td></tr>
+          <tr><td>Created On : </td><td><%= typeof(account) != 'undefined' ? account.created : '' %></td></tr>
+          <tr><td>Balance <br> (USD) : </td><td><%= typeof(account) != 'undefined' ? account.balance : '' %></td></tr>    
+        </table>
+      </div>
+
+      <!-- This division shows the account transfer initial page -->
+      <div class="box" id="transferInitiate" style=<%= page == 'transferInitiate' ? "display:block;" : "display:none;" %> >
+        Enter the account transfer details: <br> 
+        <form name="transfer" action="/account/<%= typeof(username) != 'undefined' ? username : '' %>/debit" method="post">
+          <p class="alert"> <%= typeof(message) != 'undefined' ? message : '' %> </p>
+          <table>
+            <tr><td>Name of the account holder: </td><td><input type="text" name="toUser" required></td></tr>
+            <tr><td>Amount to tranfer (in USD): </td><td><input type="number" name="amount" required></td></tr>   
+          </table>
+          <input type="submit" value="Transfer" class="button-view">
+        </form>
+      </div>
+
+      <!-- This division displays data once account transfer is successful -->
+      <div class="box" id="transferSuccess" style=<%= page == 'transferSuccess' ? "display:block;" : "display:none;" %> >
+        <br> <br> <br>
+        <p> <b> Transaction successful! <br> <br> <br> <%= typeof(message) != 'undefined' ? message: '' %> </b> </p>
+      </div>
+
+      <!-- This division lists all transfers initiated by the user -->
+      <div class="container" id="transfers" style=<%= page == 'transfers' ? "display:block;" : "display:none;" %> >
+        <br>
+        Account transfer details are as follows: <br> <br>
+        <table class="sample-table">
+          <th><td> Transaction ID </td><td> To user </td><td> Date </td><td> Amount (in USD) </td></th>
+          <% if ( typeof(transactions) != 'undefined' ) { for(var i=0; i<transactions.length; i++) {%>
+            <tr> <td> <%= i+1 %></td><td> <%= transactions[i].id %></td><td><%= transactions[i].touser %></td><td><%= transactions[i].date %></td><td><%= transactions[i].amount %> </td></tr>
+          <% } } %>   
+      </table>
+      </div>
+  </body>
+</html>

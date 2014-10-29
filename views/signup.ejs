@@ -1,0 +1,53 @@
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <% include headerincludes %>
+      <script>
+        function validateForm() {
+          var x = document.getElementById('email').value;
+          var atpos = x.indexOf("@");
+          var dotpos = x.lastIndexOf(".");
+          if (atpos< 1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+            document.getElementById('message').innerHTML =  "Please enter valid e-mail address";
+            return false;
+          }
+          var password = document.getElementById('password').value;
+          var verify = document.getElementById('verify').value;
+          if (password != verify) {
+  	        document.getElementById('message').innerHTML = "The password and password verification do not match!";
+            return false;
+          }
+
+          var hash = 0, i, chr, len;
+          if (password.length == 0) {
+            document.getElementById('password').value = hash + '';
+          } else {
+            for (i = 0, len = password.length; i < len; i++) {
+              chr   = password.charCodeAt(i);
+              hash  = ((hash << 5) - hash) + chr;
+              hash |= 0; // Convert to 32bit integer
+            }
+            document.getElementById('password').value = hash + '';              
+          }
+
+          // remove the verify field
+          document.getElementById('verify').remove();
+        }
+      </script>
+    </head>
+    <body>
+        <% include header %>
+        <div class="box">
+          <form name="login" action="/users/add" onsubmit="return validateForm()" method="post">
+            <p id="message" class="alert"> <%= typeof(message) != 'undefined' ? message : '' %></p>
+            <table> 
+              <tr><td> Username : </td><td> <input type="text" id="name" name="name" required> </td></tr>
+              <tr><td> Email ID : </td><td> <input type="text" id="email" name="email" required> </td></tr>
+              <tr><td> Password : </td><td> <input type="password" id="password" name="password" required> </td></tr>
+              <tr><td> Verify Password : </td><td> <input type="password" id="verify" name="verify" required> </td></tr>
+            </table>
+            <input type="submit" value="Sign up" class="button-view">
+          </form>
+        </div>
+    </body>
+  </html>

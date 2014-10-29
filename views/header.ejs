@@ -1,0 +1,31 @@
+<header>
+    <!-- Welcome, logout and title part -->
+    <div class="titleBar" style=<%=typeof(mode) != 'undefined' && mode=='admin' ? "display:none;" : "display:block;" %>>
+        <div class="titleBarLeft">
+            <div class="userId">Welcome <%= typeof(username) != 'undefined' ? username : '' %></div>
+        </div>
+        <div class="titleBarRight">
+            <div><a class="logout" href="/"><%= typeof(username) != 'undefined' ? "Logout": '' %></a></div>
+        </div>
+        <div class="titleBarCenter">
+		      <p> <b>Mini Paypal</b> </p>
+              <p>Your payments, simplified!</p>
+	   </div>
+    </div>
+    <ul id="navbar" style=<%= typeof(username) != 'undefined' ? "display:block;" : "display:none;" %> >
+        <%
+            var user = typeof(username) != 'undefined' ? username: '';
+            var mod = typeof(mode) != 'undefined' && mode=='admin' ? 'admin' : '';
+            var userUrl = "/users/" + user + "?mode=" + mod;
+            var accountUrl = "/account/" + user + "?mode=" + mod;
+            var transferUrl = "/account/" + user + "/transfer?mode=" + mod;
+            var transfersUrl = "/account/" + user + "/transfers?mode=" + mod;
+        %>
+        <!-- Tabbed pages, loads on user selection. If it is admin mode only certain tabs are loaded -->
+        <li><a href="<%= userUrl %>" <%- typeof(page) != 'undefined' && page=='profile'?'class="active"':' '%> >Profile</a></li>
+        <li><a href="<%= accountUrl %>" <%- typeof(page) != 'undefined' && page=='account'?'class="active"':' '%> >Account Details</a></li>
+        <li style=<%= typeof(mode) != 'undefined' && mode=='admin' ? "display:none;" : "display:block;" %>><a href="<%= transferUrl %>" <%- typeof(page) != 'undefined' && page=='transferInitiate'?'class="active"':' '%>> Transfer Money</a></li>
+        <li><a href="<%= transfersUrl %>" <%- typeof(page) != 'undefined' && page=='transfers'?'class="active"':' '%> >Transfer History</a></li>
+    </ul>
+    <div class="separator-line"></div>
+</header>
