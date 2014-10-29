@@ -13,4 +13,4 @@ Assumption : You have MySQL installed and a database created.
 ## Notes
 
 - The password of all the test users is same as the user name. For example, password of alice is "alice" 
-- User "admin" with password "admin" has admin previleges
+- User "admin" with password "admin" has admin privileges on the paypal site.
