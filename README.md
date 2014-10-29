@@ -2,7 +2,7 @@ This is a very basic implementation of paypal like website using Node.js.
 
 ## Setup
 Assumption : You have MySQL installed and a database created.
-- To populate your db with sample data, from the current directory, run >  ```cd scripts; mysql -u [user] -p [database] < paypal.sql```
+- To create tables and populate your db with sample data, from the current directory, run >  ```cd scripts; mysql -u [user] -p [database] < paypal.sql```
 - To install node and npm, from the current directory, run - > ```cd scripts; ./setup.sh```
 
 ## Running the server
