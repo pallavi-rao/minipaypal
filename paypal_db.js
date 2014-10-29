@@ -5,8 +5,10 @@ var mysql      = require('mysql');
 var connectionInfo = {
   host     : 'localhost',
   user     : process.env.DBUSER || 'user',
-  password : process.env.DBPASSWORD || 'user',
   database : process.env.DBNAME || 'paypal'
+}
+if (process.env.DBPASSWORD) {
+  connectionInfo['password'] = process.env.DBPASSWORD;
 }
 var connection = mysql.createConnection(connectionInfo);
 

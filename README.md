@@ -1,4 +1,4 @@
-This is a very basic implementation of paypal like website using Node.js.
+This is a very basic implementation of paypal like application using Node.js.
 
 ## Setup
 Assumption : You have MySQL installed and a database created.
@@ -7,11 +7,10 @@ Assumption : You have MySQL installed and a database created.
 
 ## Running the server
 - Open up start.sh and set the port, database name, user and password according to your settings.
-- From the current directory, run - > ```cd scripts; ./start.sh```
-- Open a browser and type in the URL -> http://localhost:[port]/
-- URL http://localhost:[port]/admin takes you to the admin page
+- From the current directory, run - > ```cd scripts; ./start.sh``` . Enter the details are requested.
+- Open a browser and type in the URL -> http://localhost:8080/
+- URL http://localhost:8080/admin takes you to the admin page. Login with user "admin" and password "admin" 
 
 ## Notes
 
 - The password of all the test users is same as the user name. For example, password of alice is "alice" 
-- User "admin" with password "admin" has admin privileges on the paypal site. 
