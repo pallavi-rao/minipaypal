@@ -9,8 +9,9 @@ Assumption : You have MySQL installed and a database created.
 - Open up start.sh and set the port, database name, user and password according to your settings.
 - From the current directory, run - > ```cd scripts; ./start.sh```
 - Open a browser and type in the URL -> http://localhost:[port]/
+- URL http://localhost:[port]/admin takes you to the admin page
 
 ## Notes
 
 - The password of all the test users is same as the user name. For example, password of alice is "alice" 
-- User "admin" with password "admin" has admin privileges on the paypal site.
+- User "admin" with password "admin" has admin privileges on the paypal site. 
