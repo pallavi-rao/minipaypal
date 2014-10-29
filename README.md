@@ -8,6 +8,7 @@ Assumption : You have MySQL installed and a database created.
 ## Running the server
 - Open up start.sh and set the port, database name, user and password according to your settings.
 - From the current directory, run - > ./start.sh
+- Open a browser and type in the URL -> http://localhost:[port]/
 
 ## Notes
 
